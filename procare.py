@@ -64,7 +64,17 @@ def display_team_names():
         """,
         unsafe_allow_html=True,
     )
+
 # Database connection configuration
+# change based on you db configuration
+# DB_CONFIG = {
+#     "dbname": "Phase 4",
+#     "user": "postgres",
+#     "password": "990582",
+#     "host": "localhost",
+#     "port": "8000"
+# }
+
 DB_CONFIG = {
     "dbname": "project2",
     "user": "postgres",
@@ -792,7 +802,7 @@ def main():
         
         selected_table = st.sidebar.selectbox(
             "Choose a table to view:",
-            ["Users", "Client", "Agent", "Doctor", "Healthcare Providers", "Policies", "Medical Services", "Sell", "Pays","Insurance Plan"]
+            ["Users", "Client", "Client Address", "Client Phone Number", "Client Dependent", "Medical Records", "Employee", "Employee Dependent", "Agent", "Doctor", "Doctor Specilization", "Healthcare Providers", "Employ Doctor", "Insurance Plan", "Policies", "Medical Services", "Sell", "Pays", "Covers"]
         )
 
         # Initialize table_name to avoid UnboundLocalError
@@ -805,10 +815,26 @@ def main():
             table_name = "agent"
         elif selected_table == "Client":
             table_name = "client"
+        elif selected_table == "Client Address":
+            table_name = "clientaddress"
+        elif selected_table == "Client Phone Number":
+            table_name = "clientphonenumber"
+        elif selected_table == "Client Dependent":
+            table_name = "clientdependent"
+        elif selected_table == "Medical Records":
+            table_name = "medicalrecords"
+        elif selected_table == "Employee":
+            table_name = "employee"
+        elif selected_table == "Employee Dependent":
+            table_name = "employeedependent"
         elif selected_table == "Doctor":
             table_name = "doctor"
+        elif selected_table == "Doctor Specilization":
+            table_name = "doctorspecialization"
         elif selected_table == "Healthcare Providers":
             table_name = "HealthcareProvider"
+        elif selected_table == "Employ Doctor":
+            table_name = "employdoctor"
         elif selected_table == "Policies":
             table_name = "Policy"
         elif selected_table == "Medical Services":
@@ -817,6 +843,8 @@ def main():
             table_name = "sell"
         elif selected_table == "Pays":
             table_name = "pays"
+        elif selected_table == "Covers":
+            table_name = "covers"
         elif selected_table == "Insurance Plan":
             table_name = "InsurancePlan"   
 
